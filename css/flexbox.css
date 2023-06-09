@@ -1,0 +1,137 @@
+
+/*Alinhando cabeçalho de acordo com o seu pai no HTMl que é o container */
+.cabecalhoPrincipal .container {
+    display: flex; /*Alinhar itens um ao lado do outro*/
+    align-items: center; /*Alihar no centro*/
+    justify-content: space-between; /*alinhar entre os proprios objetos*/
+}
+
+.cabecalhoPrincipal-nav {
+    display: flex; 
+}
+
+/*Achando o pai dos elementos e usando flex-box*/
+.rodapePrincipal-patrocinadores .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rodapePrincipal-patrocinadores-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-around; /*espaço entre os elementos*/
+    width: 70%;
+    margin-right: 5%;
+}
+
+.rodapePrincipal-contatoForm {
+    width: 25%;
+}
+
+.rodapePrincipal-contatoForm-fieldset {
+    display: flex; /*deixando filhos com a mesma altura*/
+}
+
+.rodapePrincipal-navMap-list {
+    display: flex;
+    flex-direction: column;/*Direcionar o flex*/
+    flex-wrap: wrap; /*quebrar p/ proxima coluna*/
+    height: 252px;
+}
+
+.conteudoPrincipal-cursos {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.conteudoPrincipal-cursos-link {
+    width: 23%;
+    margin: 1%;
+}
+
+/*tirar margens do elemento da direita*/
+.conteudoPrincipal-cursos-link:nth-child(4n) {
+    margin-right: 0;
+}
+
+/*tirar margens do elemento da esquerda*/
+.conteudoPrincipal-cursos-link:nth-child(4n+1) {
+    margin-left: 0;
+}
+
+.videoSobre .container {
+    display: flex;
+}
+
+.videoSobre-sobre {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;/*crescer o tamanho que sobrou na pag.*/
+}
+
+.videoSobre-sobre-list {
+    flex-grow: 2;
+}
+
+.videoSobre-video {
+    flex-grow: 1;/*novamente distribuindo espaço vazio*/
+    flex-shrink:2; /*Conforme diminua a tela ele diminua o elemento*/
+}
+
+/*Aplicando edições para Mobile*/
+/*media usado para ultiliar o codigo até determinado pixel*/
+@media(max-width: 768px) {
+
+    .cabecalhoPrincipal-nav {
+        flex-direction: column;
+    }
+    
+    .cabecalhoPrincipal .container{
+        flex-direction: column;
+        align-items: initial;
+        text-align: center;
+    }
+    
+    .conteudoPrincipal-cursos {
+        flex-direction: column;
+    }
+    .conteudoPrincipal-cursos-link {
+        width: 100%;
+    }
+    
+    .rodapePrincipal-navMap-list {
+        height: auto;
+    }
+    
+    .rodapePrincipal-patrocinadores .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .rodapePrincipal-patrocinadores-list {
+        margin: 0;
+        width: 100%;
+    }
+    
+    .rodapePrincipal-contatoForm-fieldset {
+        justify-content: center;
+    }
+    
+    .rodapePrincipal-contatoForm {
+        width: 100%;
+    }
+
+    .cabecalhoPrincipal-nav-link-app {
+        order: -1; /*mudar ordem dos elementos*/
+    }
+
+    .videoSobre .container {
+        flex-direction: column;
+    }
+
+    .videoSobre-video {
+        /*tendo em vista que o iframe é um display*/
+        margin: 0 auto;
+    }
+}
